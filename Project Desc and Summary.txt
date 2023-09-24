@@ -1,0 +1,38 @@
+PROJECT DESCRIPTION AND SUMMARY
+
+-. BACKGROUND
+The challenge is to classify the types of disasters in Indonesia. Classifying the types of disasters in Indonesia is crucial it helps in optimizing disaster management efforts, reducing the impact of disasters, and ultimately protecting lives and infrastructure. By utilizing the features of total death and year in the open dataset “Penyebab Kematian di Indonesia yang Dilaporkan”, we build a predictive model that aims to provide insights and aid decision-making in disaster management.
+
+-. DESCRIPTION OF THE DATASET: 
+Contains data compiled from the Indonesian Health Profile from 2004 to 2022 and COVID-19 data. The URL of the data source is listed in the "Source URL" column. The "Type" column (Type of Cause of Death) is filled in by the author, not from the sources mentioned, but inspired by the 2019 Indonesian Health Profile which divides Health Crises by Disaster Type, namely Social Disasters, Natural Disasters, and Non-Natural Disasters. In the context of this dataset, I used those 3 types but modified them slightly, which became: "Social Disasters", "Natural Disasters", and "Non-Natural Disasters and Diseases".
+Variable description:
+-. Cause: Penyebab Kematian (character)
+-. Type: Jenis Penyebab Kematian (character)
+-. Year: Tahun Kejadian (integer)
+-. Data Redundancy: Redundansi data untuk penyebab kematian di tahun yang sama(integer)
+-. Total Deaths: Jumlah total kematian (integer)
+-. Source: Sumber Data (character)
+-. Page at Source: Halaman pada sumber data (character)
+-. Source URL: URL Sumber data (character)
+
+-. APPLIED METHODS EXPLANATION
+Our approach involved utilizing the input features of total death, year, and population. We employed the decision tree algorithm to build a model that can accurately predict the type of disaster based on these features. To evaluate the model's performance, we used the accuracy metric, which measures the proportion of correctly classified instances.  And we explored the impact of different input features alongside total death and year to assess their influence on the model's accuracy. By applying this methodology, we aimed to develop an effective and interpretable model.
+
+
+-. RESULT & DISCUSSION
+Because there is the same significance/importance value due to their perfect correlation coefficient, and it doesn’t benefit the model, so we try to create a new decision tree model that uses the Year or Total.Deaths variables.
+The model shows a relatively good accuracy of 73% on the test set with both fits, but it is important to consider the possibility of overfitting or underfitting.
+
+-. MODEL EXPLANATION
+-. True Positive (TP): The amount of data that was correctly predicted as "Bencana Alam" by the model (7 in this case).
+-. False Negative (FN): The number of data that should have been classified as "Bencana Alam" but were incorrectly predicted as "Bencana Non Alam dan Penyakit" by the model (16 in this case).
+-. False Positive (FP): The amount of data that should have been classified as "Bencana Non Alam dan Penyakit" but was incorrectly predicted as "Bencana Alam" by the model (20 in this case).
+-. True Negative (TN): The amount of data that was correctly predicted as "Bencana Non Alam dan Penyakit" by the model (89 in this case).
+The model's performance can be considered quite good, as it achieves an accuracy of 73% on the test set.
+
+-. CONCLUSION
+The final model utilized the "Total Death" and "Year" variables as input features, which proved to be efficient for predicting the outcomes.
+Evaluation using the confusion matrix revealed that the model achieved 7 True Positives, correctly predicting instances of "Natural Disasters." However, it also had 16 False Negatives, misclassifying some instances of "Natural Disasters" as "Non-Natural Disasters and Diseases." Additionally, there were 20 False Positives, incorrectly categorizing some instances as "Natural Disasters" when they should have been labeled as "Non-Natural Disasters and Diseases." On the positive side, the model achieved 89 True Negatives, accurately identifying instances of "Non-Natural Disasters and Diseases."
+Overall, the model's performance demonstrates its potential for predicting the given outcomes, but further analysis is needed to assess any potential issues like overfitting or underfitting.
+
+
